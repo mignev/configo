@@ -1,37 +1,99 @@
 Configo
 =======
 
-Easy way to use existing JSON, XML or YAML config files from bash
+Easy way to use existing JSON, XML or YAML config files from bash shell/scripts
 
-configo config.json/yaml/xml some.key
-configo config.json/yaml/xml some.other.key
+# How can i use it?
+...
 
-configo from config.json/yaml/xml get some.key
+###Sample json config file
+Lets say that this config file is located `/etc/myapp/config.json`
 
-#Sample json example
+    {
+      "config_version": "1.0",
+      "application": "My Application",
+      "webservers": {
+        "api": {
+          "host": "api.some.com",
+          "port": "80",
+          "apikey": "somekey",
+          "apisecret": "somesecret"
+        },
 
-{
-  "list": [1,2,3],
-  "pingable": "192.168.2.1",
-  "port": "8080",
-  "user_ssl": "true",
-  "user": { "username": "migi", "first_name": "marian", "last_name": "ignev", "some": {"test": "test_value"} }
-}
+        "img": {
+          "host": "img.some.com",
+          "port": "8013",
+          "apikey": "ihuu",
+          "apisecret": "somesecret"
+        },
 
-# Example 1
-VARNAME=`configo from config.json get some.key`
+        "video": {
+          "host": "video.some.com",
+          "port": "80",
+          "apikey": "somekey",
+          "apisecret": "somesecret"
+        }
+      },
 
-# Example 2
-TARGET_CONF="/etc/some/conf.json"
-CONFIGO="configo from $TARGET_CONF"
-VARNAME=`$CONFIGO get some.key.value`
+      "databases": {
+        "web": { "host": "db.web.some.com", "port": "3306", "username": "myuser", "password": "mypass" },
+        "office": { "host": "db.office.some.com", "port": "3306", "username": "myuser", "password": "mypass" }
+      }
+    }
 
-# Example 3
-export CONFIGO_CONF=`/some/config/path/conf.json`
-VARNAME=`configo get some.key`
-VARNAME1=`configo get anoter.key`
+#Usage examples
+These examples will show you several different ways about how you can work with your JSON config files in shell with ease.
+All examples use the sample config file above.
+
+
+### Syntax
+ 1. `configo from config get key`
+ 2. `configo get key` //more info below
+
+### Shell example in standard way
+    # configo from /etc/myapp/config.json get application
+    //-> My Application
+
+### Shell example in standard way with `nested` properties
+    # configo from /etc/myapp/config.json get webservers.api.host
+    //-> api.some.com
+
+### Shell scripts example in standard way
+    TARGET_CONF="/etc/myapp/config.json";
+    CONFIGO="configo from $TARGET_CONF";
+    VARNAME=`$CONFIGO get databases.office.password`;
+    echo $VARNAME;
+    //-> mypass
+
+### Lazy example
+If you want you can assign the path to your config file to `CONFIGO_CONF` variable and `configo` will use it without having to define it as an sargument every time.
+
+    export CONFIGO_CONF=`/etc/myapp/config.json`
+
+    API_WEBSERVER_HOSTNAME=`configo get webservers.api.host`
+    //-> api.some.com
+
+    OFFICE_DB_HOST=`configo get databases.office.host`
+    //-> db.office.some.com
+
+# Installation
+
+from source
+
+    # git clone git@github.com:mignev/configo.git
+    # cd configo
+    # python setup.py install
+
+
+with pip
+
+    # pip install configo
 
 # TODO
 - Add tests
 - Add xml support
 - Add yaml support
+
+
+#Copyright
+Copyright (c) 2012 Marian Ignev. See LICENSE for further details.
