@@ -2,10 +2,17 @@ from __future__ import with_statement
 from configo.configo import Configo, ConfigoNotExistingKeyError
 import os
 import unittest
+import re
 
 class ConfigoTest(unittest.TestCase):
     def setUp(self):
-        self.config_path = "{0}/fixtures/config.json".format(os.getcwd())
+
+        if not re.search(r'/tests', os.getcwd()):
+            cwd = '{0}/tests'.format(os.getcwd())
+        else:
+            cwd = os.getcwd()
+
+        self.config_path = "{0}/fixtures/config.json".format(cwd)
         self.configo = Configo()
 
     def test_get_key(self):

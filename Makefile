@@ -3,6 +3,16 @@ help:
 	@echo "   uninstall    to uninstall Configo"
 	@echo "   clean        to clean build files"
 
+test:
+	@echo "Run all tests"
+	@echo "---------"
+	@echo ""
+	@echo "Run API tests"
+	@python tests/configo_tests.py
+	@echo ""
+	@echo "Run CLI tests"
+	@python tests/configo_executable_tests.py
+
 install:
 	@echo "Installing"
 	@sudo python setup.py install --record installed_files.txt

@@ -24,7 +24,7 @@ class Configo():
 
         for item in splited_key:
             if iteration == 0:
-                result = result = self.get_value(json_object, item)
+                result = self.get_value(json_object, item)
             else:
                 result = self.get_value(result, item)
 

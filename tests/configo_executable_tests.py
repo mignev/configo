@@ -1,11 +1,17 @@
 import os
 import subprocess
 import unittest
+import re
 
 class ConfigoExecutableTest(unittest.TestCase):
 
     def setUp(self):
-        self.config_path = "{0}/fixtures/config.json".format(os.getcwd())
+        if not re.search(r'/tests', os.getcwd()):
+            cwd = '{0}/tests'.format(os.getcwd())
+        else:
+            cwd = os.getcwd()
+
+        self.config_path = "{0}/fixtures/config.json".format(cwd)
 
     def cmd(self, *args):
         process = subprocess.Popen(*args, shell=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
