@@ -89,11 +89,37 @@ with pip
 
     # pip install configo
 
+# Testing
+All tests are located in `tests` dir. They are 2 different test suites. One test suit for `configo api` and another for the `command line tool`.
+
+So what should we do to run tests:
+
+    cd tests
+    ln -s ../configo configo
+    ln -s ../bin bin
+
+If you want to run `configo api` tests just run:
+
+    python configo_tests.py
+
+If you run `command line tool` tests you must do the following:
+
+    export CONFIGO_CONF=`pwd`/fixtures/config.json # this is necessary to work tests with lazy syntax
+
+... and after that just run:
+
+    python configo_executable_tests.py
+
 # TODO
-- Add tests
 - Add xml support
 - Add yaml support
 
+# CHANGELOG
+
+### 1.1:
+
+- add tests for api and command line tool
+- refactor configo api and command line tool
 
 #Copyright
 Copyright (c) 2012 Marian Ignev. See LICENSE for further details.

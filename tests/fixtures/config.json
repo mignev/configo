@@ -1,0 +1,32 @@
+{
+  "config_version": "1.0",
+  "application": "My Application",
+  "list": [1,2,3,4],
+  "webservers": {
+    "api": {
+      "host": "api.some.com",
+      "port": "80",
+      "apikey": "somekey",
+      "apisecret": "somesecret"
+    },
+
+    "img": {
+      "host": "img.some.com",
+      "port": "8013",
+      "apikey": "ihuu",
+      "apisecret": "somesecret"
+    },
+
+    "video": {
+      "host": "video.some.com",
+      "port": "80",
+      "apikey": "somekey",
+      "apisecret": "somesecret"
+    }
+  },
+
+  "databases": {
+    "web": { "host": "db.web.some.com", "port": "3306", "username": "myuser", "password": "mypass" },
+    "office": { "host": "db.office.some.com", "port": "3306", "username": "myuser", "password": "mypass" }
+  }
+}

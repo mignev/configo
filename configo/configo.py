@@ -2,6 +2,8 @@
 from __future__ import with_statement
 import json, sys, os, subprocess
 
+class ConfigoNotExistingKeyError(Exception): pass
+
 class Configo():
     def __init__(self):
         self.tmp_conf_name = os.environ.get('CONFIGO_CONF', None)
@@ -28,15 +30,16 @@ class Configo():
 
             iteration += 1
 
-        sys.stdout.write(str(result))
-        sys.exit(0)
+        return str(result)
 
     def get_value(self, obj, item):
         result = ''
-
-        if type(obj) == list:
-            result = obj[int(item)]
-        elif type(obj) == dict:
-            result = obj[item]
+        try:
+            if type(obj) == list:
+                result = obj[int(item)]
+            elif type(obj) == dict:
+                result = obj[item]
+        except (KeyError, IndexError):
+            raise ConfigoNotExistingKeyError()
 
         return result

@@ -34,3 +34,5 @@ nosetests.xml
 .pydevproject
 
 installed_files.txt
+tests/bin
+tests/configo
