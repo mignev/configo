@@ -48,7 +48,7 @@ All examples use the sample config file above.
 
 ### Syntax
  1. `configo from config get key`
- 2. `configo get key` //more info below
+ 2. `configo get key` //That's what i say 'lazy way' ... more info below
 
 ### Shell example in standard way
     # configo from /etc/myapp/config.json get application
@@ -66,7 +66,7 @@ All examples use the sample config file above.
     //-> mypass
 
 ### Lazy example
-If you want you can assign the path to your config file to `CONFIGO_CONF` variable and `configo` will use it without having to define it as an sargument every time.
+If you want you can assign the path to your config file to `CONFIGO_CONF` variable and `configo` will use it without having to define it as an argument every time.
 
     export CONFIGO_CONF=`/etc/myapp/config.json`
 
