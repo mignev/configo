@@ -117,7 +117,6 @@ If you run `command line tool` tests you must do the following:
 
 # TODO
 - Add xml support
-- Add yaml support
 
 # CHANGELOG
 
