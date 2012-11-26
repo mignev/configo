@@ -26,3 +26,7 @@ clean:
 	@sudo rm -rf dist
 	@sudo rm -rf build
 	@find . -name *.pyc -type f -exec rm {} \;
+
+deploy:
+	@git push
+	@python setup.py sdist upload
