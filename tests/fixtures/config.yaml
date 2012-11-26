@@ -1,0 +1,23 @@
+config_version: 1.0
+application: My Application
+list: [1,2,3,4]
+list1:
+  - item1
+  - item2
+  - item3
+webservers:
+  api:
+    host: api.some.com
+    port: 80
+    apikey: somekey
+    apisecret: somesecret
+  img:
+    host: api.some.com
+    port: 8013
+    apikey: somekey
+    apisecret: somesecret
+  video:
+    host: api.some.com
+    port: 80
+    apikey: somekey
+    apisecret: somesecret

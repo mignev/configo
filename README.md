@@ -42,7 +42,7 @@ Lets say that this config file is located `/etc/myapp/config.json`
     }
 
 #Usage examples
-These examples will show you several different ways about how you can work with your JSON config files in shell with ease.
+These examples will show you several different ways about how you can work with your JSON/YAML/XML config files in shell with ease.
 All examples use the sample config file above.
 
 
@@ -75,6 +75,11 @@ If you want you can assign the path to your config file to `CONFIGO_CONF` variab
 
     OFFICE_DB_HOST=`configo get databases.office.host`
     //-> db.office.some.com
+
+#Requirements
+
+* Python 2.6+
+* PyYAML (latest version recommended) - tested with PyYAML 3.10
 
 # Installation
 
@@ -115,6 +120,12 @@ If you run `command line tool` tests you must do the following:
 - Add yaml support
 
 # CHANGELOG
+
+### 1.2:
+
+- add yaml support
+- add tests for yaml support
+- small refactoring
 
 ### 1.1:
 

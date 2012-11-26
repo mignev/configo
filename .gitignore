@@ -36,3 +36,5 @@ nosetests.xml
 installed_files.txt
 tests/bin
 tests/configo
+
+venv

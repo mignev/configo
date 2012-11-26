@@ -24,7 +24,7 @@ distutils.core.setup(name='Configo',
       packages=['configo'],
       long_description=read('README.md'),
       package_dir={"configo":"configo"},
-      # install_requires = [''],
+      install_requires = ['pyyaml'],
       scripts= ["bin/configo"],
       classifiers=[
           'Development Status :: 4 - Beta',
