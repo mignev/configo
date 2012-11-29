@@ -2,6 +2,8 @@ help:
 	@echo "   install      to install Configo"
 	@echo "   uninstall    to uninstall Configo"
 	@echo "   clean        to clean build files"
+	@echo "   test         to run tests"
+	@echo "   deploy       to deploy new version on github and pypi"
 
 test:
 	@echo "Run all tests"
