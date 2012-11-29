@@ -115,8 +115,14 @@ If you run `command line tool` tests you must do the following:
 
     python configo_executable_tests.py
 
+# Contributing
+Fork the [Configo repo on GitHub](https://github.com/mignev/configo), make your super duper awesome changes :) and send me a Pull Request. :)
+
+
+
 # TODO
 - Add xml support
+- Change/Update properties in config files
 
 # CHANGELOG
 
