@@ -95,6 +95,8 @@ with pip
     # pip install configo
 
 # Testing
+[![Build Status](https://travis-ci.org/mignev/configo.png?branch=master)](https://travis-ci.org/mignev/configo)
+
 All tests are located in `tests` dir. They are 2 different test suites. One test suit for `configo api` and another for the `command line tool`.
 
 So what should we do to run tests:
@@ -114,6 +116,7 @@ If you run `command line tool` tests you must do the following:
 ... and after that just run:
 
     python configo_executable_tests.py
+
 
 # Contributing
 Fork the [Configo repo on GitHub](https://github.com/mignev/configo), make your super duper awesome changes :) and send me a Pull Request. :)
