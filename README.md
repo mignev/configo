@@ -1,6 +1,8 @@
 Configo
 =======
 
+[![Build Status](https://travis-ci.org/mignev/configo.png?branch=master)](https://travis-ci.org/mignev/configo)
+
 Easy way to use existing JSON, XML or YAML config files from bash shell/scripts
 
 # How can i use it?
@@ -95,7 +97,6 @@ with pip
     # pip install configo
 
 # Testing
-[![Build Status](https://travis-ci.org/mignev/configo.png?branch=master)](https://travis-ci.org/mignev/configo)
 
 All tests are located in `tests` dir. They are 2 different test suites. One test suit for `configo api` and another for the `command line tool`.
 
