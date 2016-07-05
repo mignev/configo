@@ -13,7 +13,7 @@ def get_key(config_path, keyname):
         sys.stdout.write(result)
         sys.exit(0)
     except ConfigoNotExistingKeyError:
-        print "Error: You are searching for not existing key"
+        print("Error: You are searching for not existing key")
         sys.exit(1)
 
 
@@ -37,24 +37,24 @@ def run_configo():
                             get_key(config_path, keyname)
 
                         except IndexError:
-                            print "Please tell me what key you want"
-                            print "For example: configo from {0} get some.key".format(config_path)
+                            print("Please tell me what key you want")
+                            print("For example: configo from {0} get some.key".format(config_path))
                             sys.exit(1)
 
                 except IndexError:
-                    print "Usage: configo from config.json get some.key"
+                    print("Usage: configo from config.json get some.key")
                     sys.exit(1)
 
             except IndexError:
-                print "Please fill config path"
-                print "For example: configo from /config/path/config.json"
+                print("Please fill config path")
+                print("For example: configo from /config/path/config.json")
                 sys.exit(1)
         elif command == 'get':
             if not configo.tmp_conf_name:
-                print "If you want to use this short syntax you must define in your shell script CONFIGO_CONF variable that configo will use."
-                print "For example:"
-                print "export CONFIGO_CONF='/some/config.json'"
-                print "configo get some.key"
+                print("If you want to use this short syntax you must define in your shell script CONFIGO_CONF variable that configo will use.")
+                print("For example:")
+                print("export CONFIGO_CONF='/some/config.json'")
+                print("configo get some.key")
                 sys.exit(1)
             else:
                 config_path = configo.tmp_conf_name
@@ -62,13 +62,13 @@ def run_configo():
                     keyname = sys.argv[2]
                     get_key(config_path, keyname)
                 except IndexError:
-                    print "Please enter key that you want from the config"
-                    print "For example:"
-                    print "configo get some.key"
+                    print("Please enter key that you want from the config")
+                    print("For example:")
+                    print("configo get some.key")
                     sys.exit(1)
 
         elif command == 'version':
-            print configo_version
+            print(configo_version)
             sys.exit(0)
 
         else:
@@ -77,7 +77,7 @@ def run_configo():
                 get_key(command, keyname)
 
             except IndexError:
-                print "Usage: configo config.json some.key"
+                print("Usage: configo config.json some.key")
                 sys.exit(1)
 
 

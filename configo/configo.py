@@ -3,6 +3,7 @@ from __future__ import with_statement
 from os import environ
 import json
 import yaml
+import sys
 
 class ConfigoNotExistingKeyError(Exception): pass
 
@@ -11,9 +12,15 @@ class Configo():
         self.tmp_conf_name = environ.get('CONFIGO_CONF', None)
 
     def load_config(self, config_path):
-        with open(config_path) as config:
-            config_content = config.read()
-            return config_content
+        config_content = ""
+
+        if config_path.startswith('stdin'):
+            config_content = sys.stdin.read()
+        else:
+            with open(config_path) as config:
+                config_content = config.read()
+
+        return config_content
 
     def config_type(self, config_path):
         return config_path.split('.')[-1]
