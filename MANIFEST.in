@@ -1,0 +1,7 @@
+include *.rst
+include *.md
+include *.txt
+
+# added by check_manifest.py
+include *.py
+include tox.ini
